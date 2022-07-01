@@ -1,4 +1,5 @@
 		!This is a rock paper scissors program (fortran version)
+		!This is a beginner friendly FORTRAN project.
 		
 		program rps
 		
@@ -26,11 +27,12 @@
 		
 		30 continue
 		
-		print*,"Choose your weapon!"
+		print*,"Choose your Sign!"
 		print*,"[R]ock, [P]aper, or [S]cissors."
 		
 		read*,rps_choice
 		
+		!convert the lowercase letters to uppercase
 		if(rps_choice=='r') then
 			rps_choice='R'
 		
@@ -45,7 +47,8 @@
 		100 continue
 		
 		end if
-			
+		
+		!check if letters other than r, s, or p is keyed in
 		if (any((/'R','S','P'/)==rps_choice)) then
 			go to 50
 			
@@ -53,14 +56,18 @@
 			print*,"Please key in only R for rock, P for paper,&
 					&S for scissors."
 			go to 30
+			
 		end if
 		
 		50 continue
+		
 		print*,"Your choice ",rps_choice
 		comp_choice = ['R','P','S']
 		
+		!count the number of turns
 		played=played+1
 		
+		!computer randomly select a number for the string comp_choice()
 		call random_seed()
 		call random_number(r)
 		
@@ -70,8 +77,8 @@
 		
 		print*,"My choice: ",comp_choice1
 		
+		!compare the signs of user and computer
 		if(rps_choice == comp_choice(int(a))) then
-			
 			print*,"It's a tie!"
 			score=score+0
 			go to 10
@@ -79,7 +86,6 @@
 		else
 			
 			if(rps_choice=='R' .and. comp_choice1=='P') then
-				
 				print*,"Paper beats rock, I win!"
 				score=score+0
 				go to 10
@@ -97,12 +103,16 @@
 			else
 				print*,"Congrats! You win!"
 				score=score+1
+				
 			end if
 
 		end if
 		
 		10 continue
+		
 		print*,"Your current score is",score,"/",played
+		
+		!check if user wants to continue or not
 		print*,"Do you want to continue? [Y]es"
 		
 		read*,cont
@@ -113,6 +123,7 @@
 		else
 			print*,"Congrats! You have won",score,"times out of",played,"times!"
 			print*,"Thank you for playing!"
+			
 		end if
 		
 		end program rps
