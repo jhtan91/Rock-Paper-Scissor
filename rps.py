@@ -1,3 +1,9 @@
+#This program will allow user to play Rock, Paper, or Scissors with computer.
+#We learn how to interact with the os and re modules.
+#Also, we can learn how nested while loops work with proper continue or break statement.
+#Overall, this is a good program for beginners.
+#Credit to: https://hackr.io/blog/python-projects
+
 import random
 #import the module to interact with the operating system
 import os
@@ -17,7 +23,6 @@ nTurn=0         #Number of turns
 
 userName = input("What's your name?")
 
-#while(1<2)
 while True:
     nTurn=nTurn+1
 
@@ -69,7 +74,7 @@ while True:
         
     print("Current score is " + str(gameScore) + "/" + str(nTurn))
     cont = input("Do you want to continue? Y/N  ")
-    print("\n")     #new line
+    print("\n")
     
     if not(cont=='N' or cont=='n'):
     
